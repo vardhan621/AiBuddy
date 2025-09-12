@@ -1,6 +1,6 @@
 from openai import OpenAI
 import requests
-client = OpenAI(api_key="")
+client = OpenAI(api_key="Enter Your API key Here")
 def chat_with_gpt(user_message):
     response = client.chat.completions.create(
         model="gpt-4o-mini",  # free-tier friendly
@@ -28,4 +28,5 @@ def link_gen(user_message):
     model="gpt-4",
     messages=[{"role": "user", "content": user_message}]
     )
+
     print(response['choices'][0]['message']['content'])
