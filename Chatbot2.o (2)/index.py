@@ -30,3 +30,4 @@ def link_gen(user_message):
     )
 
     print(response['choices'][0]['message']['content'])
+
