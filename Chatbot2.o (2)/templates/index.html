@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Chatbot</title>
+    <style>
+      body {
+        font-family: Arial;
+        background: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+      .chat-container {
+        max-width: 600px;
+        margin: 50px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .messages {
+        height: 400px;
+        width: 539px;
+        overflow-y: auto;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+      .message {
+        margin: 5px 0;
+      }
+      .user {
+        text-align: right;
+        color: blue;
+      }
+      .bot {
+        text-align: left;
+        color: green;
+      }
+      input[type="text"] {
+        width: 75%;
+        padding: 10px;
+      }
+      button {
+        padding: 10px;
+      }
+      .User_text {
+        float: right;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        background-color: #ffe4c4;
+        border: solid #f0b469;
+        border-radius: 25px;
+        width: 300px;
+      }
+      .sendbut{
+          background-color : #4fa0f6;
+          border :solid rgba(50, 97, 226, 0.847);
+          color: white;
+          border-radius: 15%;
+          font-size: 20px;
+      }
+      .mic{
+          background-color : rgb(240, 243, 96);
+          border: solid rgb(162, 162, 26);
+          border-radius: 15%;
+          font-size: 18px;
+
+      }
+      .bot_text {
+        float: left;
+
+        background-color: #d1f7ff;
+        border: solid #63c9dd;
+        border-radius: 25px;
+        width: 400px;
+      }
+      .User_text > h3 {
+        margin: 20px;
+      }
+      .bot_text > p {
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/chat" method="post">
+      <div class="chat-container">
+        <h2>AI Chatbot</h2>
+        <div class="messages" id="messages">
+          {% for key,value in data.items()%} {%if (key!="")%}
+          <div class="{{My_class}}">
+            <h3>{{key}}</h3>
+          </div>
+          <div class="{{my_class}}">
+           {%if key!="bye"%} 
+            {%for point in value%}
+            <p>{{point}}</p>
+            {%endfor%}
+           {%else%}
+             <p>{{value}}</p>
+            {%endif%}
+          </div>
+          {%endif%} {% endfor %}
+        </div>
+        <input
+          type="text"
+          id="userInput"
+          name="message"
+          placeholder="Type your message..."
+        />
+        <button class="sendbut"name="mic" type="submit" value="send">Send</button>
+        <button class="mic"name="mic" type="submit" value="mic">🎙</button>
+      </div>
+    </form>
+
+    <script href="../index1.js"></script>
+  </body>
+</html>
